@@ -3,24 +3,26 @@ import { useParams, useLocation } from "react-router-dom";
 import { Container, Row } from "react-bootstrap";
 import BookCatalog from '../BookCatalog/BookCatalog';
 import BookDetails from '../BookDetails/BookDetails';
+import banner from '../assets/banner.png';
+import './Home.css';
 
 function Home() {
-  const [books, setBooks] = useState([]);
-  const [selectedBook, setSelectedBook] = useState(null);
+  const [cafes, setCafes] = useState([]);
+  const [selectedCafe, setSelectedCafe] = useState(null);
   const [fieldValues, setFieldValues] = useState({});
-  const { isbn } = useParams();
+  const { id } = useParams();  // Cambiado de isbn a id
   const [error, setError] = useState(null);
   const { state: { userRole } } = useLocation();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("https://my.api.mockaroo.com/Books.json?key=13d161b0");
+        const response = await fetch("http://localhost:3001/cafes");
         if (!response.ok) {
-          throw new Error("Error al obtener los libros");
+          throw new Error("Error al obtener los cafés");
         }
         const data = await response.json();
-        setBooks(data);
+        setCafes(data);
       } catch (error) {
         setError(error.message);
       }
@@ -31,14 +33,14 @@ function Home() {
 
   useEffect(() => {
     const fetchBookDetails = async () => {
-      if (isbn) {
+      if (id) {
         try {
-          const response = await fetch(`https://my.api.mockaroo.com/books/${isbn}.json?key=13d161b0`);
+          const response = await fetch(`http://localhost:3001/cafes/${id}`);
           if (!response.ok) {
-            throw new Error("Error al obtener los detalles del libro");
+            throw new Error("Error al obtener los detalles del café");
           }
           const data = await response.json();
-          setSelectedBook(data);
+          setSelectedCafe(data);
         } catch (error) {
           setError(error.message);
         }
@@ -46,18 +48,18 @@ function Home() {
     };
 
     fetchBookDetails();
-  }, [isbn]);
+  }, [id]);
 
   useEffect(() => {
-    if (selectedBook) {
+    if (selectedCafe) {
       setFieldValues({
-        title: selectedBook.title,
-        author: selectedBook.author,
-        isbn: selectedBook.isbn,
-        publisher: selectedBook.publisher
+        nombre: selectedCafe.nombre,
+        tipo: selectedCafe.tipo,
+        region: selectedCafe.region,
+        // ... (otros campos del objeto café)
       });
     }
-  }, [selectedBook]);
+  }, [selectedCafe]);
 
   const handleInputChange = (field, value) => {
     setFieldValues({
@@ -67,21 +69,29 @@ function Home() {
   };
 
   return (
-    <Container className="home-container">
-      <Row>
-        <BookCatalog
-          books={books}
-          onSelectBook={setSelectedBook}
-          selectedBook={selectedBook}
-        />
-        <BookDetails
-          selectedBook={selectedBook}
-          userRole={userRole}
-          fieldValues={fieldValues}
-          onInputChange={handleInputChange}
-        />
-      </Row>
-    </Container>
+    <div>
+      <div>
+        <h2 className="titulo">El aroma mágico</h2>
+      </div>
+      <div className="banner-container">
+        <img src={banner} alt="Banner" className="banner-image" />
+      </div>
+      <Container className="home-container">
+        <Row>
+          <BookCatalog
+            cafes={cafes}
+            onSelectCafe={setSelectedCafe}
+            selectedCafe={selectedCafe}
+          />
+          <BookDetails
+            selectedCafe={selectedCafe}
+            userRole={userRole}
+            fieldValues={fieldValues}
+            onInputChange={handleInputChange}
+          />
+        </Row>
+      </Container>
+    </div>
   );
 }
 

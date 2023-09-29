@@ -1,30 +1,34 @@
 import React from 'react';
-import { Row, Col, Card } from 'react-bootstrap';
+import { Table, Col } from 'react-bootstrap';
 import './BookCatalog.css';
-import libro from '../assets/libro.png';
 
-function BookCatalog({ books, onSelectBook, selectedBook }) {
+function BookCatalog({ cafes, onSelectCafe, selectedCafe }) {
   return (
     <Col md={6}>
-      <h2>Catálogo de Libros</h2>
-      <Row className="book-row">
-        {books.map((book) => (
-          <Col md={4} key={book.isbn} className="book-col">
-            <Card
-              onClick={() => onSelectBook(book)}
-              className={`book-card ${
-                selectedBook && selectedBook.isbn === book.isbn ? "selected" : ""
-              }`}
+      <Table striped bordered hover className="cafe-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Tipo de Café</th>
+            <th>Región</th>
+          </tr>
+        </thead>
+        <tbody>
+          {cafes.map((cafe) => (
+            <tr
+              key={cafe.id}
+              onClick={() => onSelectCafe(cafe)}
+              className={selectedCafe && selectedCafe.id === cafe.id ? 'selected' : ''}
             >
-              <Card.Img variant="top" src={libro} />
-              <Card.Body className="book-card-body">
-                <Card.Title>{book.title}</Card.Title>
-                <Card.Text>{book.author}</Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}
-      </Row>
+              <td>{cafe.id}</td>
+              <td>{cafe.nombre}</td>
+              <td>{cafe.tipo}</td>
+              <td>{cafe.region}</td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
     </Col>
   );
 }

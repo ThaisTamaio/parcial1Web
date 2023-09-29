@@ -1,39 +1,41 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Col, Card } from 'react-bootstrap';
-import './BookDetails.css';
+import './BookDetails.css';  
 
-function BookDetails({ selectedBook, userRole, fieldValues, onInputChange }) {
-  const renderEditableField = (label, field) => {
-    const value = fieldValues[field];
-    return userRole ? (
-      <div>
-        <div>
-          <label className = "BookDetails_label">{label}:</label>
-        </div>
-        <input
-          type="text"
-          className="BookDetails_input"
-          value={value || ''}
-          onChange={(e) => onInputChange(field, e.target.value)}
-        />
-      </div>
-    ) : (
-      <Card.Text>
-        {label}: {value}
-      </Card.Text>
-    );
-  };
+function BookDetails({ selectedCafe }) {
+  const [imageSrc, setImageSrc] = useState(null);
 
-  return selectedBook ? (
-    <Col md={6}>
-      <div className="book-details">
-        <h2>Detalles del Libro</h2>
+  useEffect(() => {
+    if (selectedCafe && selectedCafe.id) {
+      fetch(`/api/cafes/${selectedCafe.id}/imagen`)
+        .then(response => response.blob())
+        .then(blob => {
+          const url = URL.createObjectURL(blob);
+          setImageSrc(url);
+        })
+        .catch(error => console.error('Error fetching image:', error));
+    }
+  }, [selectedCafe]);
+
+  return selectedCafe ? (
+    <Col md={4}>
+      <div className="cafe-details"> 
         <Card>
           <Card.Body>
-            {renderEditableField('Título', 'title')}
-            {renderEditableField('Autor', 'author')}
-            {renderEditableField('ISBN', 'isbn')}
-            {renderEditableField('Editorial', 'publisher')}
+            <Card.Text>
+              <b>Nombre: {selectedCafe.nombre || ''}</b>
+            </Card.Text>
+            <Card.Text>
+              Fecha de Cultivación: {selectedCafe.fecha_cultivo || ''}
+            </Card.Text>
+            <Card.Text>
+              <b>Notas</b>
+              {selectedCafe.notas || ''}
+            </Card.Text>
+            <Card.Text>
+              <b>Cultivado a una altura de</b>
+              <b>{selectedCafe.altura || ''}</b>
+            </Card.Text>
           </Card.Body>
         </Card>
       </div>
