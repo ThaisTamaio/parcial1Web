@@ -5,19 +5,15 @@
   
   .book-col {
     display: flex;
-    flex: 1;
-    min-height: 1px; /* Esta regla es para asegurar que las columnas no se encogen en pantallas pequeñas */
   }
   
   .book-card {
-    width: 200px; /* Esto hará que la tarjeta ocupe todo el ancho disponible en la columna */
-    height: 200px; /* Esto hará que la tarjeta ocupe todo el alto disponible en la columna */
-    display: flex; /* Esto permite usar flexbox dentro de la tarjeta */
-    flex-direction: column; /* Esto hará que los elementos en la tarjeta se apilen verticalmente */
-    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
   }
   
   .book-card-body {
-    flex: 1; /* Esto hará que el cuerpo de la tarjeta ocupe todo el espacio disponible */
-  }
-  
+    flex: 1;
+  }  

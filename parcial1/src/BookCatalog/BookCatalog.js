@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row, Col, Card } from 'react-bootstrap';
 import './BookCatalog.css';
+import libro from '../assets/libro.png';
 
 function BookCatalog({ books, onSelectBook, selectedBook }) {
   return (
@@ -15,6 +16,7 @@ function BookCatalog({ books, onSelectBook, selectedBook }) {
                 selectedBook && selectedBook.isbn === book.isbn ? "selected" : ""
               }`}
             >
+              <Card.Img variant="top" src={libro} />
               <Card.Body className="book-card-body">
                 <Card.Title>{book.title}</Card.Title>
                 <Card.Text>{book.author}</Card.Text>
