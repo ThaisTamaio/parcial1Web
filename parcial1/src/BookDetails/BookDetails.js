@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { Col, Card } from 'react-bootstrap';
+import { FormattedMessage } from "react-intl";
 import './BookDetails.css';
 
 function BookDetails({ selectedCafe }) {
@@ -50,16 +51,16 @@ function BookDetails({ selectedCafe }) {
               </div>
             )}
             <Card.Text className="cafe-notes">
-              Notas
+              <FormattedMessage id="bookCatalog.notes" />
             </Card.Text>
             <Card.Text className="cafe-notes2">
               {cafeDetails.notas || ''}
             </Card.Text>
             <Card.Text className="cafe-altitude">
-              Cultivado a una altura de:
+              <FormattedMessage id="bookCatalog.altitude" />
             </Card.Text>
             <Card.Text className="cafe-altitude2">
-              {cafeDetails.altura || ''} msnm
+              {cafeDetails.altura || ''} <FormattedMessage id="bookCatalog.msnm" />
             </Card.Text>
           </Card.Body>
         </Card>

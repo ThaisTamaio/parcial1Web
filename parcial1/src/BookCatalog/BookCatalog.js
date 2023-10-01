@@ -1,5 +1,6 @@
 import React from 'react';
 import { Table, Col } from 'react-bootstrap';
+import { FormattedMessage } from "react-intl";
 import './BookCatalog.css';
 
 function BookCatalog({ cafes, onSelectCafe, selectedCafe, fieldValues }) {
@@ -9,9 +10,15 @@ function BookCatalog({ cafes, onSelectCafe, selectedCafe, fieldValues }) {
                 <thead>
                     <tr>
                         <th className="cafe-table_bold-text">ID</th>
-                        <th>Nombre</th>
-                        <th>Tipo de Café</th>
-                        <th>Región</th>
+                        <th>
+                            <FormattedMessage id="bookCatalog.name" />
+                        </th>
+                        <th>
+                            <FormattedMessage id="bookCatalog.type" />
+                        </th>
+                        <th>
+                            <FormattedMessage id="bookCatalog.region" />
+                        </th>
                     </tr>
                 </thead>
                 <tbody>

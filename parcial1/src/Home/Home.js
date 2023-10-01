@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Container, Row } from "react-bootstrap";
+import { FormattedMessage } from "react-intl";
 import BookCatalog from '../BookCatalog/BookCatalog';
 import BookDetails from '../BookDetails/BookDetails';
 import banner from '../assets/banner.png';
@@ -61,7 +62,9 @@ function Home() {
     <div>
       <Container className="home-container">
         <Row className="row-border">
-          <h2 className="titulo">El aroma mágico</h2>
+          <h2 className="titulo">
+            <FormattedMessage id="home.title" />
+          </h2>
         </Row>
         <Row className="row-border">
           <img src={banner} alt="Banner" className="banner-image" />
@@ -84,7 +87,7 @@ function Home() {
         </Row>
       </Container>
       <div className="contact-info">
-        Contact us: +57 3102105253 - info@elaromamagico.com - @elaromamagico
+        <FormattedMessage id="home.contact" />
       </div>
     </div>
   );

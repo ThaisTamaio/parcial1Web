@@ -1,0 +1,18 @@
+{
+"login.title": "The Magical Aroma",
+"login.login": "Login",
+"login.username": "Username",
+"login.password": "Password",
+"login.enter": "Enter",
+"login.cancel": "Cancel",
+"login.contact": "Contact us: +57 3102105253 - info@elaromamagico.com - @elaromamagico",
+"login.error": "Authentication Error. Check your credentials",
+"home.title": "The Magical Aroma",
+"home.contact": "Contact us: +57 3102105253 - info@elaromamagico.com - @elaromamagico",
+"bookCatalog.name": "Name",
+"bookCatalog.type": "Type",
+"bookCatalog.region": "Region",
+"bookCatalog.notes": "Notes",
+"bookCatalog.altitude": "Cultivated at an altitude of:",
+"bookCatalog.msnm": "masl"
+}
