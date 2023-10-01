@@ -3,10 +3,43 @@
   font-size: 16px;
 }
 
-.cafe-details img {
-  transform: scale(0.4);
+.cafe-card {
+  border: 1px solid black;
+  background-color: #f9f1f1 !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.cafe-details h3 {
+.cafe-name {
   font-weight: bold;
+  text-transform: uppercase;
+}
+
+.cafe-date {
+  font-weight: normal;
+  margin-bottom: 0;
+}
+
+.cafe-notes {
+  font-weight: normal;
+  margin-bottom: 0;
+}
+
+.cafe-altitude {
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.cafe-altitude2 {
+  font-weight: bold;
+  margin-top: 0;
+}
+
+.cafe-image {
+  margin: 5px 0;
+}
+
+.cafe-image-img {
+  max-width: 50%;
+  max-height: 50%;
+  object-fit: contain;
 }
