@@ -38,7 +38,7 @@ function Login() {
         const data = await response.json();
 
         if (response.status === 200) {
-            navigate("/Home", { state: { userRole: "admin" } });  // Asumiendo el rol de admin
+            navigate("/Home", { state: { userRole: "admin" } });
         } else {
             const errorMessage = data.message === "The provided credentials are incorrect."
                 ? intl.formatMessage({ id: "login.error" })

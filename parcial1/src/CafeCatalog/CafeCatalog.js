@@ -1,9 +1,9 @@
 import React from 'react';
 import { Table, Col } from 'react-bootstrap';
 import { FormattedMessage } from "react-intl";
-import './BookCatalog.css';
+import './CafeCatalog.css';
 
-function BookCatalog({ cafes, onSelectCafe, selectedCafe, fieldValues }) {
+function CafeCatalog({ cafes, onSelectCafe, selectedCafe, fieldValues }) {
     return (
         <Col md={6}>
             <Table hover className="cafe-table">
@@ -11,13 +11,13 @@ function BookCatalog({ cafes, onSelectCafe, selectedCafe, fieldValues }) {
                     <tr>
                         <th className="cafe-table_bold-text">ID</th>
                         <th>
-                            <FormattedMessage id="bookCatalog.name" />
+                            <FormattedMessage id="cafeCatalog.name" />
                         </th>
                         <th>
-                            <FormattedMessage id="bookCatalog.type" />
+                            <FormattedMessage id="cafeCatalog.type" />
                         </th>
                         <th>
-                            <FormattedMessage id="bookCatalog.region" />
+                            <FormattedMessage id="cafeCatalog.region" />
                         </th>
                     </tr>
                 </thead>
@@ -28,7 +28,7 @@ function BookCatalog({ cafes, onSelectCafe, selectedCafe, fieldValues }) {
                             onClick={() => onSelectCafe(cafe)}
                             className={selectedCafe && selectedCafe.id === cafe.id ? 'selected' : ''}
                         >
-                            <td>{cafe.id}</td>
+                            <td><strong>{cafe.id}</strong></td>
                             <td>{selectedCafe && selectedCafe.id === cafe.id ? fieldValues.nombre : cafe.nombre}</td>
                             <td>{selectedCafe && selectedCafe.id === cafe.id ? fieldValues.tipo : cafe.tipo}</td>
                             <td>{selectedCafe && selectedCafe.id === cafe.id ? fieldValues.region : cafe.region}</td>
@@ -40,4 +40,4 @@ function BookCatalog({ cafes, onSelectCafe, selectedCafe, fieldValues }) {
     );
 }
 
-export default BookCatalog;
+export default CafeCatalog;

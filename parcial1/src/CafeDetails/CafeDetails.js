@@ -1,9 +1,10 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { Col, Card } from 'react-bootstrap';
 import { FormattedMessage } from "react-intl";
-import './BookDetails.css';
+import {FormattedDate} from 'react-intl';
+import './CafeDetails.css';
 
-function BookDetails({ selectedCafe }) {
+function CafeDetails({ selectedCafe }) {
   const [imageSrc, setImageSrc] = useState(null);
   const [cafeDetails, setCafeDetails] = useState({});
 
@@ -43,7 +44,19 @@ function BookDetails({ selectedCafe }) {
               {cafeDetails.nombre || ''}
             </Card.Text>
             <Card.Text className="cafe-date">
-              {cafeDetails.fecha_cultivo || ''}
+              {
+                cafeDetails.fecha_cultivo ? (
+                  <FormattedDate
+                    value={cafeDetails.fecha_cultivo}
+                    year='numeric'
+                    month='long'
+                    day='numeric'
+                    weekday='long'
+                  />
+                ) : (
+                  <FormattedMessage id="cafeCatalog.unknownDate" />
+                )
+              }
             </Card.Text>
             {imageSrc && (
               <div className='cafe-image'>
@@ -51,16 +64,16 @@ function BookDetails({ selectedCafe }) {
               </div>
             )}
             <Card.Text className="cafe-notes">
-              <FormattedMessage id="bookCatalog.notes" />
+              <FormattedMessage id="cafeCatalog.notes" />
             </Card.Text>
             <Card.Text className="cafe-notes2">
               {cafeDetails.notas || ''}
             </Card.Text>
             <Card.Text className="cafe-altitude">
-              <FormattedMessage id="bookCatalog.altitude" />
+              <FormattedMessage id="cafeCatalog.altitude" />
             </Card.Text>
             <Card.Text className="cafe-altitude2">
-              {cafeDetails.altura || ''} <FormattedMessage id="bookCatalog.msnm" />
+              {cafeDetails.altura || ''} <FormattedMessage id="cafeCatalog.msnm" />
             </Card.Text>
           </Card.Body>
         </Card>
@@ -69,4 +82,4 @@ function BookDetails({ selectedCafe }) {
   );
 }
 
-export default BookDetails;
+export default CafeDetails;

@@ -9,10 +9,11 @@
 "login.error": "Authentication Error. Check your credentials",
 "home.title": "The Magical Aroma",
 "home.contact": "Contact us: +57 3102105253 - info@elaromamagico.com - @elaromamagico",
-"bookCatalog.name": "Name",
-"bookCatalog.type": "Type",
-"bookCatalog.region": "Region",
-"bookCatalog.notes": "Notes",
-"bookCatalog.altitude": "Cultivated at an altitude of:",
-"bookCatalog.msnm": "masl"
+"cafeCatalog.name": "Name",
+"cafeCatalog.type": "Type",
+"cafeCatalog.region": "Region",
+"cafeCatalog.notes": "Notes",
+"cafeCatalog.altitude": "Cultivated at an altitude of:",
+"cafeCatalog.msnm": "masl",
+"cafeCatalog.unknownDate": "Unknown date"
 }

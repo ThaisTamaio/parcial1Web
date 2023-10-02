@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Container, Row } from "react-bootstrap";
 import { FormattedMessage } from "react-intl";
-import BookCatalog from '../BookCatalog/BookCatalog';
-import BookDetails from '../BookDetails/BookDetails';
+import CafeCatalog from '../CafeCatalog/CafeCatalog';
+import CafeDetails from '../CafeDetails/CafeDetails';
 import banner from '../assets/banner.png';
 import './Home.css';
 
@@ -70,19 +70,19 @@ function Home() {
           <img src={banner} alt="Banner" className="banner-image" />
         </Row>
         <Row>
-          <BookCatalog
+          <CafeCatalog
             cafes={cafes}
             onSelectCafe={setSelectedCafe}
             selectedCafe={selectedCafe}
             fieldValues={fieldValues}
-            className="book-catalog"
+            className="cafe-catalog"
           />
-          <BookDetails
+          <CafeDetails
             selectedCafe={selectedCafe}
             userRole={userRole}
             fieldValues={fieldValues}
             onInputChange={handleInputChange}
-            className="book-details"
+            className="cafe-details"
           />
         </Row>
       </Container>

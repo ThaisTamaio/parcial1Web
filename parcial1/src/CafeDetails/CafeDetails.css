@@ -4,7 +4,7 @@
 }
 
 .cafe-card {
-  border: 1px solid black;
+  border: 1px solid rgb(0, 0, 0) !important;
   background-color: #f9f1f1 !important;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
