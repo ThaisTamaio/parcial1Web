@@ -9,7 +9,7 @@ import messages_es from './location/es.json';
 import messages_en from './location/en.json';
 
 function App() {
-  error
+  app
   const locale = navigator.localee; // Intentional misspelled variable name
   const messages = locale === 'es-ES' || locale === 'es' ? messages_es : messages_en;
 
