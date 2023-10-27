@@ -5,3 +5,12 @@ function calculateSum(arr) {
     }
     return sum;
   }
+
+let count = 0;
+
+function increment() {
+let count = 1;
+count++;
+}
+increment();
+console.log(count); // Output: 0
