@@ -16,6 +16,7 @@ function App() {
     <IntlProvider>
       <Router>
         <div className="App">
+          error
           <Routs> {/* Intentional typo in Routes */}
             <Route path="/" element={<Login />} />
             <Route path="/Hme" element={<Home />} /> {/* Invalid route path */}
