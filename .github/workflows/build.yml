@@ -11,9 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2  # Actualiza a la versión 2 de la acción
+        uses: actions/checkout@v2
         with:
-          fetch-depth: 0  # Deshabilita clones superficiales para una mejor relevancia del análisis
+          fetch-depth: 0
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
@@ -21,9 +21,9 @@ jobs:
       - name: Install SonarCloud Scan
         run: npm install -g sonarqube-scanner
       - name: Install Dependencies
-        run: npm install  # Asegúrate de que las dependencias estén instaladas
+        run: npm install
       - name: Run Tests with Coverage
-        run: npm run test:coverage  # Ajusta este comando según tu configuración
+        run: npm run test:coverage  # Ejecuta tus pruebas con informes de cobertura
       - name: Upload Coverage to SonarCloud
         run: |
           sonar-scanner \
