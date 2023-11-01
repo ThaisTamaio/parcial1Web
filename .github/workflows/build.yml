@@ -13,17 +13,23 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2  # Actualiza a la versión 2 de la acción
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+          fetch-depth: 0  # Deshabilita clones superficiales para una mejor relevancia del análisis
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
           node-version: 14
       - name: Install SonarCloud Scan
         run: npm install -g sonarqube-scanner
-      - name: SonarCloud Scan
+      - name: Install Dependencies
+        run: npm install  # Asegúrate de que las dependencias estén instaladas
+      - name: Run Tests with Coverage
+        run: npm run test -- --coverage
+      - name: Upload Coverage to SonarCloud
         run: |
           sonar-scanner \
             -Dsonar.projectKey=ThaisTamaio_parcial1Web \
             -Dsonar.organization=thaistamaio \
             -Dsonar.host.url=https://sonarcloud.io \
             -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+        env:
+          CI: true
