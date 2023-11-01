@@ -5,6 +5,7 @@ import './CafeCatalog.css';
 
 function CafeCatalog({ cafes, onSelectCafe, selectedCafe, fieldValues }) {
     return (
+        error{}
         <Col md={6}>
             <Table hover className="cafe-table">
                 <thead>
