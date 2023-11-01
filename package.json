@@ -30,9 +30,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --coverage",
+    "test:coverage": "react-scripts test --coverage",
     "eject": "react-scripts eject",
     "coverage": "react-scripts test --coverage"
-  },
+  },  
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -52,6 +53,7 @@
     ]
   },
   "devDependencies": {
-    "nyc": "^15.1.0"
+    "nyc": "^15.1.0",
+    "react-scripts": "^5.0.1"
   }
 }
