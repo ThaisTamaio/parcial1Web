@@ -23,7 +23,7 @@ jobs:
       - name: Install Dependencies
         run: npm install  # Asegúrate de que las dependencias estén instaladas
       - name: Run Tests with Coverage
-        run: npm run test -- --coverage
+        run: npm run test:coverage  # Ajusta este comando según tu configuración
       - name: Upload Coverage to SonarCloud
         run: |
           sonar-scanner \
