@@ -77,6 +77,7 @@ function Home() {
             fieldValues={fieldValues}
             className="cafe-catalog"
           />
+          Hola cambios
           <CafeDetails
             selectedCafe={selectedCafe}
             userRole={userRole}
