@@ -11,3 +11,9 @@ test('displays the Login component on the "/" route', () => {
   const loginElement = getByText(/Login/i);
   expect(loginElement).toBeInTheDocument();
 });
+
+test('displays the Home component on the "/Home" route', () => {
+  const { getByText } = render(<App />);
+  const homeElement = getByText(/Home/i);
+  expect(homeElement).toBeInTheDocument();
+});
