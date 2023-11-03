@@ -10,7 +10,6 @@ function CafeDetails({ selectedCafe }) {
 
   const fetchCafeDetails = useCallback(async () => {
     if (selectedCafe && selectedCafe.id) {
-      // Introduce un error tipográfico en la URL
       const response = await fetch(`http://localhost:3001/caefes/${selectedCafe.id}`);
       if (!response.ok) {
         throw new Error("Error al obtener los detalles del café");
@@ -30,7 +29,6 @@ function CafeDetails({ selectedCafe }) {
         .then(response => response.blob())
         .then(blob => {
           const url = URL.createObjectURL(blob);
-          // Un error al usar una variable que no ha sido definida (debería ser imageSrc en lugar de url)
           setImageSrc(imageScr);
         })
         .catch(error => console.error('Error fetching image:', error));
@@ -62,7 +60,6 @@ function CafeDetails({ selectedCafe }) {
             </Card.Text>
             {imageSrc && (
               <div className='cafe-image'>
-                // Introduce un error lógico mostrando una imagen incorrecta (debería ser imageSrc)
                 <img src={cafeDetails.imagen} alt="Imagen del café" className='cafe-image-img'/>
               </div>
             )}
