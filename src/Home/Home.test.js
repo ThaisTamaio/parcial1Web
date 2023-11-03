@@ -3,5 +3,5 @@ import ReactDOM from 'react-dom';
 import Home from './Home';
 
 it('renders without crashing', () => {
-  console.log("wwiiiii");
+    const div = document.createElement('div');
 });

@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { Col, Card } from 'react-bootstrap';
 import { FormattedMessage } from "react-intl";
 import { FormattedDate } from 'react-intl';
+import PropTypes from 'prop-types';
 import './CafeDetails.css';
 
 function CafeDetails({ selectedCafe }) {
@@ -10,7 +11,7 @@ function CafeDetails({ selectedCafe }) {
 
   const fetchCafeDetails = useCallback(async () => {
     if (selectedCafe && selectedCafe.id) {
-      const response = await fetch(`http://localhost:3001/caefes/${selectedCafe.id}`);
+      const response = await fetch(`http://localhost:3001/cafes/${selectedCafe.id}`);
       if (!response.ok) {
         throw new Error("Error al obtener los detalles del café");
       }
@@ -29,7 +30,7 @@ function CafeDetails({ selectedCafe }) {
         .then(response => response.blob())
         .then(blob => {
           const url = URL.createObjectURL(blob);
-          setImageSrc(imageScr);
+          setImageSrc(url);
         })
         .catch(error => console.error('Error fetching image:', error));
     }
@@ -37,7 +38,7 @@ function CafeDetails({ selectedCafe }) {
 
   return (
     <Col md={4}>
-      <div className="cafe-details">
+      <div className="cafe-details"> 
         <Card className="cafe-card">
           <Card.Body>
             <Card.Text className="cafe-name">
@@ -81,5 +82,11 @@ function CafeDetails({ selectedCafe }) {
     </Col>
   );
 }
+
+CafeDetails.propTypes = {
+  selectedCafe: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+  }).isRequired,
+};
 
 export default CafeDetails;
