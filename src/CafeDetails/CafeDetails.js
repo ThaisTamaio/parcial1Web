@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { Col, Card } from 'react-bootstrap';
 import { FormattedMessage } from "react-intl";
 import { FormattedDate } from 'react-intl';
-import PropTypes from 'prop-types'; // Import PropTypes
+import PropTypes from 'prop-types';
 import './CafeDetails.css';
 
 function CafeDetails({ selectedCafe }) {
