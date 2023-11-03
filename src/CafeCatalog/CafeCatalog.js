@@ -31,7 +31,6 @@ function CafeCatalog({ cafes, onSelectCafe, selectedCafe, fieldValues }) {
                             <td><strong>{cafe.id}</strong></td>
                             <td>{selectedCafe && selectedCafe.id === cafe.id ? fieldValues.nombre : cafe.nombre}</td>
                             <td>{selectedCafe && selectedCafe.id === cafe.id ? fieldValues.tipo : cafe.tipo}</td>
-                            <td>{selectedCafe && selectedCafe.id === cafe.id ? fieldValues.region : cafe.region}</td>
                         </tr>
                     ))}
                 </tbody>
