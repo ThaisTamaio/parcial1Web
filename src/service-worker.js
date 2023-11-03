@@ -30,7 +30,7 @@ registerRoute(
   ({ request, url }) => (
     request.mode === 'navigate' &&
     !url.pathname.startsWith('/_') &&
-    !url.pathname.match(fileExtensionRegexp)
+    !fileExtensionRegexp.exec(url.pathname)
   ),
   createHandlerBoundToURL(process.env.PUBLIC_URL + '/index.html')
 );
